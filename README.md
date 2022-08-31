@@ -196,8 +196,8 @@ if __name__ == '__main__':
 ---
 
 ### Stack
-&emsp; &emsp; aka LIFO, is a collection where a data element is added or removed only from the top of the list.
-
+&emsp; &emsp; aka LIFO, is a collection where a data element is added or removed from only one side of the structure.
+&emsp; &emsp; This side is called the Head. The Node immediately next to head is called next from head's context.
 
 <table>
 
@@ -234,6 +234,7 @@ my_stack = Stack()
     
 ```python
 class Stack:
+...
     def push(self,data):
               
         # If stack is empty, add Node to head.    
@@ -426,6 +427,170 @@ class Queue:
         return self.front == None
 ```
 
+</td>
+
+</tr>
+
+</table>
+
+---
+
+### Priority Queue
+
+&emsp; &emsp; is a Queue where for each data element, along with the data, a priority is also associated.
+
+&emsp; &emsp; Elements get dequeud as per priority.
+
+<table>
+
+<tr>
+<td> <b>Operations</b> </td> <td> <b>Pythonic Implementation </b> </td>
+</tr>
+
+<tr>
+<td> Create a Priority Queue </td>
+
+<td>
+
+```python
+class Node:
+     
+  def __init__(self, value, pr):
+       
+    self.data = value
+    self.priority = pr
+    self.next = None
+
+
+class PriorityQueue:
+     
+    def __init__(self):
+         
+        self.front = None
+
+pq = PriorityQueue()
+
+```
+</td>
+
+</tr>
+
+<tr>
+<td> Add element to a Priority Queue </td>
+
+<td>
+
+```python
+class PriorityQueue:
+...
+def push(self, value, priority):
+         
+        # Condition check for checking Priority
+        # Queue is empty or not
+        if self.isEmpty() == True:
+             
+            # Creating a new node and assigning
+            # it to class variable
+            self.front = PriorityQueueNode(value,
+                                           priority)
+             
+            # Returning 1 for successful execution
+            return 1
+             
+        else:
+             
+            # Special condition check to see that
+            # first node priority value
+            if self.front.priority > priority:
+                 
+                # Creating a new node
+                newNode = PriorityQueueNode(value,
+                                            priority)
+                 
+                # Updating the new node next value
+                newNode.next = self.front
+                 
+                # Assigning it to self.front
+                self.front = newNode
+                 
+                # Returning 1 for successful execution
+                return 1
+                 
+            else:
+                 
+                # Traversing through Queue until it
+                # finds the next smaller priority node
+                temp = self.front
+                 
+                while temp.next:
+                     
+                    # If same priority node found then current
+                    # node will come after previous node
+                    if priority <= temp.next.priority:
+                        break
+                     
+                    temp = temp.next
+                 
+                newNode = PriorityQueueNode(value,
+                                            priority)
+                newNode.next = temp.next
+                temp.next = newNode
+                 
+                # Returning 1 for successful execution
+                return 1
+```
+</td>
+
+</tr>
+
+
+<tr>
+<td> Create a Priority Queue </td>
+
+<td>
+
+```python
+
+```
+</td>
+
+</tr>
+
+
+<tr>
+<td> Create a Priority Queue </td>
+
+<td>
+
+```python
+
+```
+</td>
+
+</tr>
+
+
+<tr>
+<td> Create a Priority Queue </td>
+
+<td>
+
+```python
+
+```
+</td>
+
+</tr>
+
+
+<tr>
+<td> Create a Priority Queue </td>
+
+<td>
+
+```python
+
+```
 </td>
 
 </tr>
