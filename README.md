@@ -6,8 +6,8 @@ This document will serve as a cheatsheet for learning Data Structures and Algori
 A **Data Structure** is an algebraic structure about data.  
 ie  
 &emsp; { [A Collection of data points in a certain format],  
-&emsp;&emsp;&emsp;&emsp;[various operations that can be performed on that collection],  
-&emsp;&emsp;&emsp;&emsp;[Rules the operations must satisfy] }
+&emsp;&emsp;&emsp;[various operations that can be performed on that collection],  
+&emsp;&emsp;&emsp;[Rules the operations must satisfy] }
 --- 
 ## Abstract Data Structures
 
@@ -46,6 +46,12 @@ Numbers are either Integer or Float.
 Text, aka string, is either a character or a list of characters.
 
 Numbers and text have their own set of Operations.
+
+#### Typical Operations on a Data Structure
+- Initialize/Create the Data Structure
+- Add/Delete elements to/from the structure
+- Traverse/navigate/Search/filter the structure
+- check if the structure is empty or full.
 
 ###List
 
@@ -192,11 +198,6 @@ if __name__ == '__main__':
 ### Stack
 &emsp; &emsp; aka LIFO, is a collection where a data element is added or removed only from the top of the list.
 
-Primary Operations:
-1. Add an entry to the top/head/front of the list
-2. Remove an entry from top/head/front of the list
-
-Secondary Operations:
 
 <table>
 
@@ -322,3 +323,111 @@ class Stack:
 
 </table>
     
+---
+
+### Queue
+
+&emsp; &emsp; aka FIFO, is a sequence where data elements are added from one end and removed from the other.  
+&emsp; &emsp; In a queue, the end where data enters is called **Front**. The end where data is removed is called **Rear**.
+
+<table>
+
+<tr>
+<td> <b>Operations</b> </td> <td> <b>Pythonic Implementation </b> </td>
+</tr>
+
+<tr>
+<td> Create a Queue </td>
+
+<td>
+
+```python
+class Node:
+      
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+  
+class Queue:
+      
+    def __init__(self):
+        self.front = self.rear = None
+
+q = Queue()
+```
+
+</td>
+
+</tr>
+
+
+<tr>
+<td> Add to a Queue </td>
+
+<td>
+
+```python
+class Queue:
+...
+    # Create a node
+    # if queue is empty, set front and read of queue as the created node
+    # else, Set the rear and rear's next node as the created node.
+    def EnQueue(self, item):
+        temp = Node(item)
+          
+        if self.rear == None:
+            self.front = self.rear = temp
+            return
+        self.rear.next = temp
+        self.rear = temp
+```
+
+</td>
+
+</tr>
+
+<tr>
+<td> Remove from Queue </td>
+
+<td>
+
+```python
+class Queue:
+...
+    # if Queue is empty, just return
+    # Else set the current front as current front's next.
+    # And then if current front is None, then set the rear also as None as the queue has become empty.
+    def DeQueue(self):
+          
+        if self.isEmpty():
+            return
+        temp = self.front
+        self.front = temp.next
+  
+        if(self.front == None):
+            self.rear = None
+```
+
+</td>
+
+</tr>
+
+
+<tr>
+<td> Is the Queue Empty </td>
+
+<td>
+
+```python
+class Queue:
+...
+    # Return True if current front is None.
+    def isEmpty(self):
+        return self.front == None
+```
+
+</td>
+
+</tr>
+
+</table>
