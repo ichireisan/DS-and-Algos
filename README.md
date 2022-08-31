@@ -1,3 +1,11 @@
+- [Data Structures and Algorithms](#data-structures-and-algorithms)
+  * [Abstract Data Structures](#abstract-data-structures)
+      - [Typical Operations on a Data Structure](#typical-operations-on-a-data-structure)
+    + [Linked List](#linked-list)
+    + [Stack](#stack)
+    + [Queue](#queue)
+    + [Priority Queue](#priority-queue)
+
 # Data Structures and Algorithms
 
 ---
